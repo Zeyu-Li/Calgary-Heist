@@ -28,7 +28,7 @@ To start do `elm-app start`
 
 ## Team
 
-🅱ealoon 🅱ois
+🅱oolean 🅱ois
 
 ![teamlogo](teamlogo.png)
 
