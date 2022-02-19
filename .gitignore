@@ -1,24 +1,17 @@
-# Created by https://www.toptal.com/developers/gitignore/api/firebase,elm
-# Edit at https://www.toptal.com/developers/gitignore?templates=firebase,elm
+# Distribution
+build/
 
-### Elm ###
 # elm-package generated files
 elm-stuff
+
 # elm-repl generated files
 repl-temp-*
 
-### Firebase ###
-.idea
-**/node_modules/*
-**/.firebaserc
+# Dependency directories
+node_modules
 
-### Firebase Patch ###
-.runtimeconfig.json
-.firebase/
-.env
-
-
-# End of https://www.toptal.com/developers/gitignore/api/firebase,elm
+# Desktop Services Store on macOS
+.DS_Store
 
 *.ai
 model/
