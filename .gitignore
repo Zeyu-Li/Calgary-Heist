@@ -15,5 +15,11 @@ repl-temp-*
 ### Firebase Patch ###
 .runtimeconfig.json
 .firebase/
+.env
+
 
 # End of https://www.toptal.com/developers/gitignore/api/firebase,elm
+
+*.ai
+model/
+*.blend1
