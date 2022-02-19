@@ -10,17 +10,42 @@
 }
 
 body {
-  font-family: 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
-  text-align: center;
-  color: #293c4b;
+  font-size: 30px;
+  color: #363636;
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 96px;
+  font-weight: 700;
+  margin: 0;
 }
 
-img {
-  margin: 20px 0;
-  max-width: 200px;
+h2,
+h3 {
+  font-size: 30px;
+  font-weight: normal;
+}
+
+pre {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+/* hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__entry {
+}
+.hero__img {
+  width: 35vw;
+}
+
+.test {
+  flex: 1;
 }
