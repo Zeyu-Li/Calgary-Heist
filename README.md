@@ -10,7 +10,7 @@ Create your own flash cards and play with your friends
 
 🅱ealoon 🅱ois
 
-![teamlogo](C:\Users\zeyul\Documents\GitHub\Calgary-Heist\teamlogo.png)
+![teamlogo](teamlogo.png)
 
 
 
