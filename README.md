@@ -6,6 +6,14 @@ Create your own flash cards and play with your friends
 
 
 
+## Tools
+
+* elm
+* firebase
+* figma
+
+
+
 ## Team
 
 🅱ealoon 🅱ois
