@@ -32,11 +32,10 @@ To start do `elm-app start`
 
 🅱oolean 🅱ois
 
-![teamlogo](teamlogo.png)
+![teamlogo](public/teamlogo.png)
 
 
 
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) 
-

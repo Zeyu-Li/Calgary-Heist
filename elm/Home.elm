@@ -1,17 +1,46 @@
-module Page.Home exposing (view)
+module Home exposing (..)
 
+import Browser
 import Html exposing (Html, a, button, div, h1, h2, h3, h4, pre, text, video)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onClick)
 
 
-view : List (Html msg)
-view =
-    [ div [ class "hero center", id "hero" ]
+main : Program Flags Model Msg
+main =
+    Browser.element { init = init, subscriptions = subscriptions, update = update, view = view }
+
+
+type alias Model =
+    {}
+
+type Msg
+    = NoOp
+
+type alias Flags =
+    {}
+
+init: Flags -> ( Model, Cmd msg )
+init flags =
+    ({}, Cmd.none)
+
+
+update : Msg -> Model -> ( Model, Cmd Msg)
+update msg model =
+    (model, Cmd.none)
+
+
+subscriptions : Model -> Sub msg
+subscriptions _ =
+    Sub.none
+
+
+view : Model -> Html msg
+view model =
+    div [] [ div [ class "hero center", id "hero" ]
         [ div [ class "hero__entry" ]
             [ h1 [] [ pre [] [ text "Study with your \nfriends" ] ]
             , h2 [] [ pre [] [ text "Create your own flash cards and play with \nyour friends" ] ]
-            , div [ class "hero__entry__bottom" ] [ button [ class "button button--blue hero__entry__bottom__button" ] [ text "Try now" ], h3 [ class "hero__entry__bottom__text" ] [ text "for Free" ] ]
+            , div [ class "hero__entry__bottom" ] [ a [ href "/login", class "button button--blue hero__entry__bottom__button" ] [ text "Try now" ], h3 [ class "hero__entry__bottom__text" ] [ text "for Free" ] ]
             ]
         , video [ src "/model.webm", Html.Attributes.alt "3D model", class "hero__video", autoplay True, Html.Attributes.loop True, Html.Attributes.attribute "muted" "" ] []
         ]

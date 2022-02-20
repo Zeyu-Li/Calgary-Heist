@@ -58,6 +58,7 @@ pre {
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .button--blue {
