@@ -97,6 +97,7 @@ export default function Game() {
                   return (
                     <tr key={index}>
                       <td>
+                        <p>Question</p>
                         <input
                           style={{ width: "70vh" }}
                           placeholder="New question"
@@ -105,6 +106,7 @@ export default function Game() {
                           value={question}
                         />
                         <br />
+                        <p>Answer</p>
                         <input
                           style={{ marginTop: 10, width: "70vh" }}
                           placeholder="Answer"
@@ -134,6 +136,7 @@ export default function Game() {
                   style={{ display: "inline" }}
                   placeholder="Enter Dollars"
                   color="success"
+                  type="number"
                   required
                 ></input>
               </div>
