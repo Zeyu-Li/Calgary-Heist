@@ -22,7 +22,9 @@ export default function Index() {
         <div className="profile__buttons">
           <h1>Your profile</h1>
           <div>
-            <button className="button button--black">Create Game</button>
+            <Link href="/create/new">
+              <button className="button button--black">Create Game</button>
+            </Link>
           </div>
         </div>
         <div className="profile__buttons">
