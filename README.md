@@ -22,6 +22,8 @@ Create your own flash cards and play with your friends
 
 ## Use
 
+First install create-elm-app globally by doing `npm install create-elm-app -g`
+
 To start do `elm-app start`
 
 
