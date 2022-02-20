@@ -6,9 +6,31 @@ Create your own flash cards and play with your friends
 
 
 
+## Demo
+
+
+
+
+
+## Tools
+
+* elm
+* firebase
+* figma
+
+
+
+## Use
+
+First install create-elm-app globally by doing `npm install create-elm-app -g`
+
+To start do `elm-app start`
+
+
+
 ## Team
 
-🅱ealoon 🅱ois
+🅱oolean 🅱ois
 
 ![teamlogo](teamlogo.png)
 
