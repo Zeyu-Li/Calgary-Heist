@@ -19,6 +19,7 @@ export default function Game() {
   const [threshold, setThreshold] = useState(3);
   const [score1, setScore1] = useState(0);
   const [score2, setScore2] = useState(0);
+  const [win, setWin] = useState<null | Boolean>(null);
   const [answer, setAnswer] = useState("");
   const [isCorrect, setCorrectness] = useState<null | Boolean>(null);
   const { id } = useRouter().query;
@@ -36,7 +37,17 @@ export default function Game() {
     return () => clearInterval(id);
   }, [score2]);
 
-  const opponentScore = () => setScore2(score2 + 1);
+  const opponentScore = () => {
+    if (win !== null) return;
+    setAnswer("");
+    if (score2 > threshold) {
+      setWin(false);
+      alert("Your lose :(");
+    } else {
+      newQuestion();
+    }
+    setScore2(score2 + 1);
+  };
   // const opponentScore = () => {
   //   // console.log(score);
   //   // const newScore = [score[0], score[1] + 1];
@@ -54,9 +65,10 @@ export default function Game() {
       setScore1(score1 + 1);
       setCorrectness(true);
       setAnswer("");
-      if (score1 + 1 > threshold) {
+      if (score1 > threshold) {
         // you win
         alert("You Win");
+        setWin(true);
       } else {
         newQuestion();
       }
