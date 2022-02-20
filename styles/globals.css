@@ -9,7 +9,8 @@
   height: inherit;
 }
 
-body {
+body,
+a {
   font-family: "Poppins", sans-serif;
   font-size: 30px;
   color: #363636;
@@ -213,4 +214,7 @@ pre {
 
 .card h1 {
   text-align: center;
+}
+tr {
+  border: 1px solid black;
 }
