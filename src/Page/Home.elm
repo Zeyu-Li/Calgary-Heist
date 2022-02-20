@@ -3,11 +3,13 @@ module Page.Home exposing (view)
 import Html exposing (Html, a, button, div, h1, h2, h3, h4, pre, text, video)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
+import Page.Header as Header
 
 
 view : List (Html msg)
 view =
-    [ div [ class "hero center", id "hero" ]
+    [ Header.view
+    , div [ class "hero center", id "hero" ]
         [ div [ class "hero__entry" ]
             [ h1 [] [ pre [] [ text "Study with your \nfriends" ] ]
             , h2 [] [ pre [] [ text "Create your own flash cards and play with \nyour friends" ] ]
@@ -17,7 +19,7 @@ view =
         ]
     , div [ class "about center", id "about" ]
         [ h4 [] [ pre [] [ text "Earn points\nfor winning" ] ]
-        , h2 [] [ pre [] [ text "See yourself on the leaderboard" ] ]
+        , h2 [] [ pre [] [ text "See yourself on the leaderboard 🥇" ] ]
         , button [ class "button button--blue hero__entry__bottom__button" ] [ text "Earn Rewards" ]
         ]
     , div [ class "about2 center", id "about2" ]
