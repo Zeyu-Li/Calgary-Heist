@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
     <div className="header">
-      <a href="/">Study Buddy</a>
-      <a href="/game">Login</a>
+      <Link href="/">Study Buddy</Link>
+      <Link href="/game">Login</Link>
     </div>
   );
 }
