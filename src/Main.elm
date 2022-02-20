@@ -1,56 +1,112 @@
-module Main exposing (..)
+module Main exposing (main)
 
-import Browser
-import Html exposing (Html, text, div, h1, img)
-import Html.Attributes exposing (src)
+import Browser exposing (Document)
+import Browser.Navigation exposing (Key)
+import Html as H
+import Html.Attributes as A
+import Route exposing (Route)
+import Router exposing (Config, Router)
+import Url exposing (Url)
 
 
----- MODEL ----
+
+-- MODEL
 
 
 type alias Model =
-    {}
-
-
-init : ( Model, Cmd Msg )
-init =
-    ( {}, Cmd.none )
+    { router : Router Route }
 
 
 
----- UPDATE ----
+-- MSG
 
 
 type Msg
-    = NoOp
+    = Router (Router.Msg Route.Msg)
+    | UrlChanged Url
+
+
+
+-- ROUTER CONFIG
+
+
+config : Config Msg Route Route.Msg
+config =
+    { parser = Route.parser
+    , update = Route.update
+    , view = Route.view
+    , message = Router
+    , subscriptions = Route.subscriptions
+    , notFound = Route.notFound
+    , routeTitle = Route.title
+    , onUrlChanged = Just UrlChanged
+    }
+
+
+
+-- INIT
+
+
+init : () -> Url -> Key -> ( Model, Cmd Msg )
+init _ url key =
+    let
+        ( router, cmd ) =
+            Router.init config url key
+    in
+    ( Model router, cmd )
+
+
+
+-- UPDATE
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    ( model, Cmd.none )
+update message ({ router } as model) =
+    case message of
+        Router msg ->
+            let
+                ( newRouter, cmd ) =
+                    Router.update config msg router
+            in
+            ( { model | router = newRouter }, cmd )
+
+        UrlChanged url ->
+            ( model, Cmd.none )
 
 
 
----- VIEW ----
+-- VIEW
 
 
-view : Model -> Html Msg
-view model =
-    div []
-        [ img [ src "/logo.svg" ] []
-        , h1 [] [ text "Your Elm App is working!" ]
+view : Model -> Document Msg
+view { router } =
+    { title = Router.title router "My app"
+    , body =
+        [ H.main_ [] (Router.view config router)
         ]
+    }
 
 
 
----- PROGRAM ----
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions { router } =
+    Router.subscriptions config router
+
+
+
+-- MAIN
 
 
 main : Program () Model Msg
 main =
-    Browser.element
-        { view = view
-        , init = \_ -> init
+    Browser.application
+        { init = init
         , update = update
-        , subscriptions = always Sub.none
+        , view = view
+        , subscriptions = subscriptions
+        , onUrlChange = Router.onUrlChange config
+        , onUrlRequest = Router.onUrlRequest config
         }
