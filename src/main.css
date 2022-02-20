@@ -174,3 +174,28 @@ pre {
 .about2 button {
   margin-bottom: 60px;
 }
+
+/* profile */
+.profile {
+  flex-direction: column;
+  width: 70vw;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+.profile__buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.profile__table {
+  margin-top: 50px;
+  width: 100%;
+}
+.profile__buttons div:first {
+  align-items: center;
+}
+.profile__buttons button,
+.profile__buttons p,
+.profile__buttons h1 {
+  display: inline;
+}

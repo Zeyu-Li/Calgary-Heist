@@ -4,6 +4,7 @@ import Html as H exposing (Html)
 import Page.Contact as Contact
 import Page.Home as Home
 import Page.Login as Login
+import Page.Profile as Profile
 import Router
 import Url exposing (Url)
 import Url.Parser as Parser exposing (Parser)
@@ -16,6 +17,7 @@ import Url.Parser as Parser exposing (Parser)
 type Route
     = Home
     | Login
+    | Profile Profile.Model
     | Contact Contact.Model
 
 
@@ -36,6 +38,7 @@ parser =
     Parser.oneOf
         [ Router.mapRoute Parser.top Home
         , Router.mapRoute (Parser.s "login") Login
+        , Router.mapRoute (Parser.s "profile") <| Profile <| Profile.init
         , Router.mapRoute (Parser.s "contact") <| Contact <| Contact.init "" ""
         ]
 
@@ -65,6 +68,9 @@ view route =
         Login ->
             Login.view
 
+        Profile tmp ->
+            Profile.view tmp
+
         Contact mdl ->
             Contact.view mdl
                 |> Router.mapMsg (ContactMsg mdl)
@@ -81,6 +87,9 @@ subscriptions route =
             Sub.none
 
         Login ->
+            Sub.none
+
+        Profile _ ->
             Sub.none
 
         Contact mdl ->
@@ -100,6 +109,9 @@ title route =
 
         Login ->
             Just "Login"
+
+        Profile _ ->
+            Just "Profile"
 
         Contact _ ->
             Just "Contact"
