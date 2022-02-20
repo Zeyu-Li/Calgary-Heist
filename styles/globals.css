@@ -99,12 +99,12 @@ pre {
   justify-content: space-between;
   margin-top: 30px;
 }
-.header p,
 .header a {
   margin-right: 150px;
   margin-left: 150px;
   font-size: 20px;
   display: inline;
+  text-decoration: none;
 }
 
 /* hero */
@@ -123,6 +123,7 @@ pre {
 .hero__entry__bottom__button,
 .hero__entry__bottom__text {
   display: inline;
+  text-decoration: none;
 }
 
 .hero__entry__bottom__text {
@@ -140,12 +141,12 @@ pre {
   font-size: 96px;
 }
 .about h2,
-.about button {
+.about a {
   margin-top: 40px;
   text-align: center;
 }
 
-.about button {
+.about a {
   margin-bottom: 60px;
 }
 /* about2 */
@@ -224,7 +225,7 @@ table {
 
 td {
   border: 1px solid #00000040;
-  padding: .5rem 2rem;
-  border-radius: .5rem;
-  margin: .5rem 0;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
 }

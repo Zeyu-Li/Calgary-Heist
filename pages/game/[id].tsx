@@ -20,7 +20,7 @@ export default function Game() {
 
   return (
     <>
-      <Heading />
+      <Heading title="Game" />
       <div className="game center">
         <h1>What is {questions[0].question}</h1>
         <div className="game__question">

@@ -47,7 +47,7 @@ view model =
     , div [ class "about center", id "about" ]
         [ h4 [] [ pre [] [ text "Earn points\nfor winning" ] ]
         , h2 [] [ pre [] [ text "See yourself on the leaderboard" ] ]
-        , button [ class "button button--blue hero__entry__bottom__button" ] [ text "Earn Rewards" ]
+        , a [ href "/game", class "button button--blue hero__entry__bottom__button" ] [ text "Earn Rewards" ]
         ]
     , div [ class "about2 center", id "about2" ]
         [ h4 [] [ pre [] [ text "Simple to use interface\n& open source" ] ]
