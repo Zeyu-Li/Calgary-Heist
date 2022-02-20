@@ -8,7 +8,7 @@ Create your own flash cards and play with your friends
 
 ## Demo
 
-
+![demo](demo.gif)
 
 
 
