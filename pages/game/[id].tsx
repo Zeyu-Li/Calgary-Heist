@@ -17,17 +17,32 @@ export default function Game() {
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [threshold, setThreshold] = useState(3);
-  const [score, setScore] = useState([0, 0]);
+  const [score1, setScore1] = useState(0);
+  const [score2, setScore2] = useState(0);
   const [answer, setAnswer] = useState("");
   const [isCorrect, setCorrectness] = useState<null | Boolean>(null);
   const { id } = useRouter().query;
   const [messages] = useCollection(collection(getFirestore(), "game"));
 
   useEffect(() => {
-    // using id populate form (questions) from firebase
     newQuestion();
     console.log(messages);
   }, []);
+
+  useEffect((): any => {
+    newQuestion();
+    // using id populate form (questions) from firebase
+    const id = setInterval(opponentScore, 4000);
+    return () => clearInterval(id);
+  }, [score2]);
+
+  const opponentScore = () => setScore2(score2 + 1);
+  // const opponentScore = () => {
+  //   // console.log(score);
+  //   // const newScore = [score[0], score[1] + 1];
+  //   setScore2(score2 + 1);
+  //   setAnswer("");
+  // };
 
   const submitButton = (e: any) => {
     e.preventDefault();
@@ -36,9 +51,10 @@ export default function Game() {
     if (answer.trim() === questions[currentQuestion].answer) {
       // correct and pass it along
       console.log("correct");
-      setScore([score[0] + 1, score[1]]);
+      setScore1(score1 + 1);
       setCorrectness(true);
-      if (score[0] + 1 > threshold) {
+      setAnswer("");
+      if (score1 + 1 > threshold) {
         // you win
         alert("You Win");
       } else {
@@ -69,6 +85,7 @@ export default function Game() {
                 isCorrect === null ? null : isCorrect ? "correct" : "incorrect"
               }`}
               onChange={(e) => setAnswer(e.target.value)}
+              value={answer}
             ></input>
             <button
               className="button button--black"
@@ -81,7 +98,7 @@ export default function Game() {
           </form>
           <h1>Score</h1>
           <p>
-            <span style={{ color: "blue" }}> ${score[0]}</span> - ${score[1]}
+            <span style={{ color: "blue" }}> ${score1}</span> - ${score2}
           </p>
         </div>
       </div>
