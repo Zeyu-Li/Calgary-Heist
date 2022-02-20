@@ -1,61 +1,112 @@
-module Main exposing (..)
+module Main exposing (main)
 
-import Browser
-import Html exposing (Html, button, div, h1, h2, h3, pre, text, video)
-import Html.Attributes exposing (autoplay, class, src)
+import Browser exposing (Document)
+import Browser.Navigation exposing (Key)
+import Html as H
+import Html.Attributes as A
+import Route exposing (Route)
+import Router exposing (Config, Router)
+import Url exposing (Url)
 
 
 
----- MODEL ----
+-- MODEL
 
 
 type alias Model =
-    {}
-
-
-init : ( Model, Cmd Msg )
-init =
-    ( {}, Cmd.none )
+    { router : Router Route }
 
 
 
----- UPDATE ----
+-- MSG
 
 
 type Msg
-    = NoOp
+    = Router (Router.Msg Route.Msg)
+    | UrlChanged Url
+
+
+
+-- ROUTER CONFIG
+
+
+config : Config Msg Route Route.Msg
+config =
+    { parser = Route.parser
+    , update = Route.update
+    , view = Route.view
+    , message = Router
+    , subscriptions = Route.subscriptions
+    , notFound = Route.notFound
+    , routeTitle = Route.title
+    , onUrlChanged = Just UrlChanged
+    }
+
+
+
+-- INIT
+
+
+init : () -> Url -> Key -> ( Model, Cmd Msg )
+init _ url key =
+    let
+        ( router, cmd ) =
+            Router.init config url key
+    in
+    ( Model router, cmd )
+
+
+
+-- UPDATE
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    ( model, Cmd.none )
+update message ({ router } as model) =
+    case message of
+        Router msg ->
+            let
+                ( newRouter, cmd ) =
+                    Router.update config msg router
+            in
+            ( { model | router = newRouter }, cmd )
+
+        UrlChanged url ->
+            ( model, Cmd.none )
 
 
 
----- VIEW ----
+-- VIEW
 
 
-view : Model -> Html Msg
-view model =
-    div [ class "hero" ]
-        [ div [ class "hero__entry" ]
-            [ h1 [] [ pre [] [ text "Study with your \nfriends" ] ]
-            , h2 [] [ pre [] [ text "Create your own flash cards and play with \nyour friends" ] ]
-            , div [ class "hero__entry__bottom" ] [ button [ class "button button--blue hero__entry__bottom__button" ] [ text "Try now" ], h3 [ class "hero__entry__bottom__text" ] [ text "for Free" ] ]
-            ]
-        , video [ src "/model.webm", Html.Attributes.alt "3D model", class "hero__video", autoplay True, Html.Attributes.loop True, Html.Attributes.attribute "muted" "" ] []
+view : Model -> Document Msg
+view { router } =
+    { title = Router.title router "My app"
+    , body =
+        [ H.main_ [] (Router.view config router)
         ]
+    }
 
 
 
----- PROGRAM ----
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions { router } =
+    Router.subscriptions config router
+
+
+
+-- MAIN
 
 
 main : Program () Model Msg
 main =
-    Browser.element
-        { view = view
-        , init = \_ -> init
+    Browser.application
+        { init = init
         , update = update
-        , subscriptions = always Sub.none
+        , view = view
+        , subscriptions = subscriptions
+        , onUrlChange = Router.onUrlChange config
+        , onUrlRequest = Router.onUrlRequest config
         }
