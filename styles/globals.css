@@ -218,6 +218,13 @@ pre {
   align-items: center;
 }
 
-tr {
-  border: 1px solid black;
+table {
+  border-spacing: 1rem;
+}
+
+td {
+  border: 1px solid #00000040;
+  padding: .5rem 2rem;
+  border-radius: .5rem;
+  margin: .5rem 0;
 }

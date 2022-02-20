@@ -7,6 +7,8 @@ import { getFirestore, doc, updateDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { Button, Input } from "@mui/material";
+import { exitCode } from "process";
+import Error from "next/error";
 
 
 interface Game {
@@ -28,6 +30,7 @@ export default function Game() {
   const { id } = useRouter().query as unknown as DocId;
   const questionRef = doc(getFirestore(), 'game', id);
   const [questionsData, questionsLoading, err] = useDocumentData(questionRef);
+  if (!questionsData) return <Error statusCode={404} />
   if (loading || questionsLoading) return ''
   const { questions } = questionsData as unknown as Game;
 
@@ -73,9 +76,8 @@ export default function Game() {
                   return (
                     <tr key={index}>
                       <td>
-                        <Input placeholder="New question" id={index.toString()} onChange={updateQuestion} value={question} />
-                        <span> </span>
-                        <Input placeholder="Answer" id={index.toString()} onChange={updateAnswer} value={answer} />
+                        <Input placeholder="New question" id={index.toString()} fullWidth multiline onChange={updateQuestion} value={question} />
+                        <Input placeholder="Answer" id={index.toString()} fullWidth onChange={updateAnswer} value={answer} />
                       </td>
                     </tr>
                   );
@@ -86,9 +88,7 @@ export default function Game() {
           </div>
           {/* another numberical text box */}
           <p>Winning Score: </p>
-          <button className="button button--black" type="submit">
-            Create Game
-          </button>
+          $<Input placeholder="Enter Dollars" color="success"></Input>
         </form>
       </div>
     </>
