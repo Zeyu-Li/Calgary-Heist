@@ -11,15 +11,22 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  margin: 0;
   font-size: 30px;
   color: #363636;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+pre {
+  margin: 0;
 }
 
 h1 {
   font-size: 96px;
   font-weight: 700;
-  margin: 0;
 }
 
 h2,
@@ -31,15 +38,26 @@ button {
 
 pre {
   font-family: "Poppins", sans-serif;
-  margin: 0;
+}
+
+.transition {
+  transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
 }
 
 .button {
   border-radius: 100px;
-  padding: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 40px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   border: none;
+  transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  cursor: pointer;
 }
 
 .button--blue {
@@ -47,11 +65,37 @@ pre {
   color: white;
 }
 
-.button--black {
-  background-color: white;
-  color: #363636;
+.button--blue:hover,
+.button--blue:focus {
+  background-color: #1d71c0;
 }
 
+.button--black {
+  color: white;
+  background-color: #363636;
+}
+
+.button--black:hover,
+.button--black:focus {
+  background-color: #575757;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hero */
+.hero {
+  min-height: 100vh;
+}
+.hero__entry__bottom {
+  padding-top: 20px;
+}
+.hero__video {
+  width: 35vw;
+}
 .hero__entry {
   margin-bottom: 100px;
 }
@@ -64,19 +108,50 @@ pre {
   margin-left: 10px;
 }
 
-/* hero */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.hero__entry {
-}
-.hero__video {
-  width: 35vw;
+/* about */
+.about {
+  background-color: #363636;
+  flex-direction: column;
+  color: white;
 }
 
-.test {
-  flex: 1;
+.about h4 {
+  font-size: 96px;
+}
+.about h2,
+.about button {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.about button {
+  margin-bottom: 60px;
+}
+/* about2 */
+.about2 {
+  background-color: #3898f1;
+  flex-direction: column;
+  color: white;
+}
+
+.about2 h4 {
+  font-size: 96px;
+}
+
+.about2 a {
+  text-decoration: none;
+}
+.about2 h4,
+.about h4 {
+  margin-top: 60px;
+  text-align: center;
+}
+.about2 h2,
+.about2 button {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.about2 button {
+  margin-bottom: 60px;
 }
