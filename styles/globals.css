@@ -55,6 +55,7 @@ pre {
 }
 
 .button {
+  display: inline-block;
   border-radius: 100px;
   padding: 40px;
   padding-top: 15px;
@@ -187,6 +188,7 @@ pre {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 .profile__table {
   margin-top: 50px;
@@ -200,6 +202,9 @@ pre {
 .profile__buttons h1 {
   display: inline;
 }
+.profile > h2 {
+  align-self: flex-start;
+}
 .fullscreen {
   width: 100vw;
   height: 100vh;
@@ -210,11 +215,9 @@ pre {
   display: flex;
   flex-direction: column;
   margin: auto;
+  align-items: center;
 }
 
-.card h1 {
-  text-align: center;
-}
 tr {
   border: 1px solid black;
 }

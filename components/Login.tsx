@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import Heading from '@/components/Head'
 import GoogleButton from 'react-google-button'
 import { Auth, getAuth, signInWithPopup, GoogleAuthProvider } from '@firebase/auth'
 
@@ -21,9 +21,7 @@ function SignIn({ auth }: props) {
 
 export default function Index({ auth }: props) {
   return <>
-    <Head>
-      <title>Study Buddy | Login</title>
-    </Head>
+    <Heading title="Login" />
     <div className="fullscreen">
       <div className="card">
         <h1>Login</h1>

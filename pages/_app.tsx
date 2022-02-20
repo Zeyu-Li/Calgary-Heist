@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { initializeApp, getApp, FirebaseError } from 'firebase/app'
@@ -27,8 +28,8 @@ const auth = getAuth(app);
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [user, loading] = useAuthState(auth)
-  if (loading) return ''
   const router = useRouter();
+  if (loading) return ''
   const requireAuthentication = () => {
     if (/^\/$/.test(router.route))
       return false

@@ -4,8 +4,8 @@ import React, { useState } from "react";
 const Heading: React.FC<any> = ({ title = "" }) => {
   return (
     <Head>
-      <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-      <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+      <link rel="manifest" href="/manifest.json" />
+      <link rel="icon" href="/favicon.ico" />
       <title>Study Buddy{title ? ` | ${title}` : null}</title>
       <meta name="author" content="Boolean Bois" />
       <meta
