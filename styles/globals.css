@@ -20,8 +20,14 @@ h1,
 h2,
 h3,
 h4,
-pre {
+pre,
+p {
   margin: 0;
+}
+
+button,
+a {
+  cursor: pointer;
 }
 
 h1 {
@@ -57,8 +63,6 @@ pre {
   -moz-transition: 0.2s;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
-  cursor: pointer;
-  text-decoration: none;
 }
 
 .button--blue {
@@ -87,9 +91,23 @@ pre {
   justify-content: center;
 }
 
+/* header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.header p,
+.header a {
+  margin-right: 150px;
+  margin-left: 150px;
+  font-size: 20px;
+  display: inline;
+}
+
 /* hero */
 .hero {
-  min-height: 100vh;
+  min-height: 95vh;
 }
 .hero__entry__bottom {
   padding-top: 20px;
@@ -155,4 +173,29 @@ pre {
 
 .about2 button {
   margin-bottom: 60px;
+}
+
+/* profile */
+.profile {
+  flex-direction: column;
+  width: 70vw;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+.profile__buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.profile__table {
+  margin-top: 50px;
+  width: 100%;
+}
+.profile__buttons div:first {
+  align-items: center;
+}
+.profile__buttons button,
+.profile__buttons p,
+.profile__buttons h1 {
+  display: inline;
 }

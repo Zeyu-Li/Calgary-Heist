@@ -42,3 +42,7 @@ yarn-error.log*
 
 # elm
 elm-stuff
+
+*.blend1
+model/
+*.ai
