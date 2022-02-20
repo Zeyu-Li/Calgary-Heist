@@ -45,7 +45,13 @@ export default function Game() {
     const newQuestions = questions
       ? questions.concat({ question: "", answer: "" })
       : [{ question: "", answer: "" }];
-    updateDoc(questionRef, { questions: newQuestions });
+    updateDoc(questionRef, {
+      questions: newQuestions,
+      points1: 0,
+      points2: 0,
+      hasWin: false,
+      win: false,
+    });
   };
 
   const updateQuestion = (
