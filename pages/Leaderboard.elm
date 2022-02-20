@@ -120,7 +120,7 @@ view model =
 
 playerNamesRow : Model -> Html msg
 playerNamesRow model =
-    tabklerow [ class "player-names" ]
+    tablerow [ class "player-names" ]
         (List.map (\name -> tableh [ class "player-name" ] [ text name ]) (playerNames model))
 
 
@@ -168,5 +168,5 @@ scoreCell score =
 
 playerScoreTotals : Model -> Html msg
 playerScoreTotals model =
-    tabklerow [ class "score-totals" ]
+    tablerow [ class "score-totals" ]
         (List.map (\total -> tabledata [ class "score-total" ] [ text total ]) (List.map String.fromInt (playerScores model)))
