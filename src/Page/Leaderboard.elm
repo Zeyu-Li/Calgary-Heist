@@ -1,7 +1,7 @@
 module ScoreTable exposing (Model, PlayerScores, init, playerName, playerNames, updateScores, calculateScores, view, topPlayer)
 
 import Array exposing (Array)
-import Html exposing (Html, div, table, tbody, td, text, th, thead, tr)
+import Html exposing (Html, div, table, tablebody, tabledata, text, tableh, tablehead, tablerow) 
 import Html.Attributes exposing (class)
 
 
@@ -27,10 +27,10 @@ init players =
 
 calculateScores : List Int -> Int -> List Int
 calculateScores scores newScore =
+    List.map (\score -> score + newScore) scores
+    
 
-        total = List.sum scores
 
-        newTotal = total + newScore
 
 
 
@@ -54,7 +54,7 @@ updateScores scores player newScore =
 topPlayer : Model -> Maybe String
 topPlayer scores =
     scores
-        |> Array.filter (\x -> List.sum x.scores == 50)
+        |> Array.filter (\x -> List.sum x.scores == 80)
         |> playerNames
         |> List.head
 
@@ -112,16 +112,16 @@ view : Model -> Html msg
 view model =
     div [ class "col s12" ]
         [ table [ class "LeaderBoard", class "centered" ]
-            [ thead [] [ playerNamesRow model ]
-            , tbody [] (scoreTable model)
+            [ tablehead [] [ playerNamesRow model ]
+            , tablebody [] (scoreTable model)
             ]
         ]
 
 
 playerNamesRow : Model -> Html msg
 playerNamesRow model =
-    tr [ class "player-names" ]
-        (List.map (\name -> th [ class "player-name" ] [ text name ]) (playerNames model))
+    tabklerow [ class "player-names" ]
+        (List.map (\name -> tableh [ class "player-name" ] [ text name ]) (playerNames model))
 
 
 scoreTable : Model -> List (Html msg)
@@ -143,10 +143,10 @@ scoreTableRows model =
             getHeads model
     in
     if List.member Nothing heads then
-        tr [ class "player-scores" ] (scoreCells heads) :: []
+        tablerow [ class "player-scores" ] (scoreCells heads) :: []
 
     else
-        tr [ class "player-scores" ] (scoreCells heads) :: scoreTableRows (getTails model)
+        tablerow [ class "player-scores" ] (scoreCells heads) :: scoreTableRows (getTails model)
 
 
 scoreCells : List (Maybe Int) -> List (Html msg)
@@ -158,28 +158,15 @@ scoreCell : Maybe Int -> Html msg
 scoreCell score =
     case score of
         Just num ->
-            td [ class "score", class (getColor num) ] [ text (String.fromInt num) ]
+            tabledata [ class "score", class (getColor num) ] [ text (String.fromInt num) ]
 
         Nothing ->
-            td [ class "score", class "grey-text" ] [ text "0" ]
+            tabledata [ class "score", class "grey-text" ] [ text "0" ]
 
 
-getColor : Int -> String
-getColor score =
-    if score == 0 then
-        "yellow"
-
-    else if score == 12 then
-        "green"
-
-    else if score < 0 then
-        "red"
-
-    else
-        ""
 
 
 playerScoreTotals : Model -> Html msg
 playerScoreTotals model =
-    tr [ class "score-totals" ]
-        (List.map (\total -> td [ class "score-total" ] [ text total ]) (List.map String.fromInt (playerScores model)))
+    tabklerow [ class "score-totals" ]
+        (List.map (\total -> tabledata [ class "score-total" ] [ text total ]) (List.map String.fromInt (playerScores model)))
