@@ -1,7 +1,7 @@
 module ScoreTable exposing (Model, PlayerScores, init, playerName, playerNames, updateScores, calculateScores, view, topPlayer)
 
 import Array exposing (Array)
-import Html exposing (Html, div, table, tablebody, tabledata, text, tableh, tablehead, tablerow) 
+import Html exposing (Html, div, table, tbody, td, text, th, thead, tr) 
 import Html.Attributes exposing (class)
 
 
@@ -112,16 +112,16 @@ view : Model -> Html msg
 view model =
     div [ class "col s12" ]
         [ table [ class "LeaderBoard", class "centered" ]
-            [ tablehead [] [ playerNamesRow model ]
-            , tablebody [] (scoreTable model)
+            [ thead [] [ playerNamesRow model ]
+            , tbody [] (scoreTable model)
             ]
         ]
 
 
 playerNamesRow : Model -> Html msg
 playerNamesRow model =
-    tablerow [ class "player-names" ]
-        (List.map (\name -> tableh [ class "player-name" ] [ text name ]) (playerNames model))
+    tr [ class "player-names" ]
+        (List.map (\name -> th [ class "player-name" ] [ text name ]) (playerNames model))
 
 
 scoreTable : Model -> List (Html msg)
@@ -143,10 +143,10 @@ scoreTableRows model =
             getHeads model
     in
     if List.member Nothing heads then
-        tablerow [ class "player-scores" ] (scoreCells heads) :: []
+        tr [ class "player-scores" ] (scoreCells heads) :: []
 
     else
-        tablerow [ class "player-scores" ] (scoreCells heads) :: scoreTableRows (getTails model)
+        tr [ class "player-scores" ] (scoreCells heads) :: scoreTableRows (getTails model)
 
 
 scoreCells : List (Maybe Int) -> List (Html msg)
@@ -158,15 +158,15 @@ scoreCell : Maybe Int -> Html msg
 scoreCell score =
     case score of
         Just num ->
-            tabledata [ class "score", class (getColor num) ] [ text (String.fromInt num) ]
+            td [ class "score", class (getColor num) ] [ text (String.fromInt num) ]
 
         Nothing ->
-            tabledata [ class "score", class "grey-text" ] [ text "0" ]
+            td [ class "score", class "grey-text" ] [ text "0" ]
 
 
 
 
 playerScoreTotals : Model -> Html msg
 playerScoreTotals model =
-    tablerow [ class "score-totals" ]
-        (List.map (\total -> tabledata [ class "score-total" ] [ text total ]) (List.map String.fromInt (playerScores model)))
+    tr [ class "score-totals" ]
+        (List.map (\total -> td [ class "score-total" ] [ text total ]) (List.map String.fromInt (playerScores model)))
