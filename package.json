@@ -16,7 +16,9 @@
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-elm-components": "^1.1.0"
+    "react-elm-components": "^1.1.0",
+    "react-firebase-hooks": "^5.0.2",
+    "react-google-button": "^0.7.2"
   },
   "devDependencies": {
     "@types/node": "17.0.18",
