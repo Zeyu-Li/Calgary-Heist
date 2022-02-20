@@ -58,7 +58,7 @@ export default function Game() {
 
   return (
     <>
-      <Heading />
+      <Heading title="Create game" />
       <div className="profile center">
         <div className="profile__buttons">
           <h1>Create</h1>
