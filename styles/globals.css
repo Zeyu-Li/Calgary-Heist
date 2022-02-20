@@ -156,3 +156,20 @@ pre {
 .about2 button {
   margin-bottom: 60px;
 }
+
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.card h1 {
+  text-align: center;
+}
