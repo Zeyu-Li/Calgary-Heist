@@ -10,6 +10,8 @@ Devpost: https://devpost.com/software/study-buddy-sctz2l
 
 Video: https://youtu.be/C60F0v4Xdq8
 
+Demo link: [calgary-heist.vercel.app/](https://calgary-heist.vercel.app/)
+
 ## Demo
 
 ![demo](demo.gif)
