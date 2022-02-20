@@ -80,7 +80,7 @@ update message ({ router } as model) =
 
 view : Model -> Document Msg
 view { router } =
-    { title = Router.title router "My app"
+    { title = Router.title router "Study Buddy"
     , body =
         [ H.main_ [] (Router.view config router)
         ]
