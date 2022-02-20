@@ -249,6 +249,10 @@ input:focus {
   border-spacing: 1rem;
 }
 
+.profile__table2 table {
+  border-spacing: 1rem;
+}
+
 .profile td {
   border: 1px solid #00000040;
   padding: 0.5rem 2rem;

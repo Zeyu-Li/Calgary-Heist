@@ -84,10 +84,11 @@ export default function Game() {
         </div>
         {/* <h2>{user?.displayName}</h2> */}
         <form>
-          <div className="profile__table">
+          <div className="profile__table2">
             <input
               placeholder="Game Name"
               required
+              style={{ width: "70vh", margin: "1rem" }}
               onChange={(e) => setName(e.target.value)}
             />
             <table>
@@ -97,12 +98,15 @@ export default function Game() {
                     <tr key={index}>
                       <td>
                         <input
+                          style={{ width: "70vh" }}
                           placeholder="New question"
                           id={index.toString()}
                           onChange={updateQuestion}
                           value={question}
                         />
+                        <br />
                         <input
+                          style={{ marginTop: 10, width: "70vh" }}
                           placeholder="Answer"
                           id={index.toString()}
                           onChange={updateAnswer}
@@ -114,22 +118,35 @@ export default function Game() {
                 })}
               </tbody>
             </table>
-            <button
-              className="button button--dark"
-              onClick={(e) => createQuestion(e)}
-            >
-              Add Question
-            </button>
+            <div style={{ margin: "1rem" }}>
+              <button
+                className="button button--dark"
+                onClick={(e) => createQuestion(e)}
+              >
+                Add Question
+              </button>
+              <div style={{ marginTop: 30 }}>
+                <p style={{ display: "inline", marginRight: 20 }}>
+                  Winning Score:{" "}
+                </p>
+                $
+                <input
+                  style={{ display: "inline" }}
+                  placeholder="Enter Dollars"
+                  color="success"
+                  required
+                ></input>
+              </div>
+              <button
+                style={{ marginTop: 30, marginBottom: 100 }}
+                className="button button--black"
+                onClick={createGame}
+                type="submit"
+              >
+                Create Game
+              </button>
+            </div>
           </div>
-          <p>Winning Score: </p>$
-          <input placeholder="Enter Dollars" color="success" required></input>
-          <button
-            className="button button--black"
-            onClick={createGame}
-            type="submit"
-          >
-            Create Game
-          </button>
         </form>
       </div>
     </>
