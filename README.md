@@ -6,9 +6,15 @@ Create your own flash cards and play with your friends
 
 
 
+Devpost: https://devpost.com/software/study-buddy-sctz2l
+
+Video: https://youtu.be/C60F0v4Xdq8
+
 ## Demo
 
 ![demo](demo.gif)
+
+![demo2](demo2.gif)
 
 
 

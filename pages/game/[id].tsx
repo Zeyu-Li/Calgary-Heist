@@ -10,7 +10,7 @@ import { collection, doc, getFirestore } from "firebase/firestore";
 
 export default function Game() {
   const [questions, setQuestions] = useState([
-    { question: "What is 28+6", answer: "1" },
+    { question: "What is 26+6", answer: "32" },
     { question: "What is 1+1", answer: "2" },
     { question: "What is 4*4", answer: "16" },
   ]);
