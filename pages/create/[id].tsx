@@ -34,7 +34,7 @@ export default function Game() {
   const { questions } = questionsData as unknown as Game;
 
   const createQuestion = (
-    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
     if (
@@ -114,7 +114,10 @@ export default function Game() {
                 })}
               </tbody>
             </table>
-            <button className="button button--dark" onClick={createQuestion}>
+            <button
+              className="button button--dark"
+              onClick={(e) => createQuestion(e)}
+            >
               Add Question
             </button>
           </div>
