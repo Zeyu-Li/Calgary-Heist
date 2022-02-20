@@ -10,6 +10,10 @@ export default function Index() {
   useEffect(() => {
     // TODO: get user points and user games created
   }, []);
+  const joinGame = () => {
+    // join game here
+  };
+
   const title = "Main Menu";
   return (
     <>
@@ -25,6 +29,14 @@ export default function Index() {
           <p>⭐ {points} stars</p>
           <div>
             <button className="button button--blue">See leaderboard</button>
+          </div>
+        </div>
+        <div className="profile__buttons" style={{ marginTop: 20 }}>
+          <input placeholder="game URL"></input>
+          <div>
+            <button className="button button--blue" onClick={() => joinGame()}>
+              Join game
+            </button>
           </div>
         </div>
         <div className="profile__table">
