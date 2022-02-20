@@ -1,15 +1,15 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import wrap from '@elm-react/component'
-import Home from '../elm/Home.elm'
+import Login from '../elm/Login.elm'
 
-const Elm = wrap(Home)
+const Elm = wrap(Login)
 
 export default function Index() {
-  return <>
-    <Head>
-      <title>Study Buddy</title>
-    </Head>
-    <Elm />
-  </>
+	return <>
+		<Head>
+			<title>Study Buddy</title>
+		</Head>
+		<Elm />
+	</>
 }
