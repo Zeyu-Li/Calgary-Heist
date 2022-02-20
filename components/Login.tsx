@@ -1,32 +1,43 @@
-import type { NextPage } from 'next'
-import Heading from '@/components/Head'
-import GoogleButton from 'react-google-button'
-import { Auth, getAuth, signInWithPopup, GoogleAuthProvider } from '@firebase/auth'
+import type { NextPage } from "next";
+import Heading from "@/components/Head";
+import GoogleButton from "react-google-button";
+import {
+  Auth,
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "@firebase/auth";
 
 interface props {
-  auth: Auth
+  auth: Auth;
 }
 
-const provider = new GoogleAuthProvider()
+const provider = new GoogleAuthProvider();
 
 function SignIn({ auth }: props) {
   const signInWithGoogle = () => {
-    signInWithPopup(getAuth(), provider)
-  }
+    signInWithPopup(getAuth(), provider);
+  };
 
-  return <div className="flex items-center flex-col">
-    <GoogleButton onClick={signInWithGoogle} />
-  </div>
+  return (
+    <div className="flex items-center flex-col">
+      <GoogleButton onClick={signInWithGoogle} />
+    </div>
+  );
 }
 
 export default function Index({ auth }: props) {
-  return <>
-    <Heading title="Login" />
-    <div className="fullscreen">
-      <div className="card">
-        <h1>Login</h1>
-        <SignIn auth={auth} />
+  return (
+    <>
+      <Heading title="Login" />
+      <div className="fullscreen center transition">
+        <div className="login__card">
+          <h1>Login</h1>
+          <div>
+            <SignIn auth={auth} />
+          </div>
+        </div>
       </div>
-    </div>
-  </>
+    </>
+  );
 }
