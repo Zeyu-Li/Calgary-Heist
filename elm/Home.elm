@@ -42,7 +42,7 @@ view model =
             , h2 [] [ pre [] [ text "Create your own flash cards and play with \nyour friends" ] ]
             , div [ class "hero__entry__bottom" ] [ a [ href "/game", class "button button--blue hero__entry__bottom__button" ] [ text "Try now" ], h3 [ class "hero__entry__bottom__text" ] [ text "for Free" ] ]
             ]
-        , video [ src "/model.webm", Html.Attributes.alt "3D model", class "hero__video", autoplay True, Html.Attributes.loop True, Html.Attributes.attribute "muted" "" ] []
+        , video [ src "/model.webm", Html.Attributes.alt "3D model", class "hero__video", autoplay True, Html.Attributes.loop True, Html.Attributes.attribute "muted" "", Html.Attributes.attribute "webkit-playsinline" "", Html.Attributes.attribute "x5-playsinline" "", Html.Attributes.attribute "playsinline" "" , Html.Attributes.attribute "preload" "auto" ] []
         ]
     , div [ class "about center", id "about" ]
         [ h4 [] [ pre [] [ text "Earn points\nfor winning" ] ]

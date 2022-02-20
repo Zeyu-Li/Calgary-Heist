@@ -33,7 +33,7 @@ export default function Index() {
             {games.map((game) => {
               return (
                 <tr key={game}>
-                  <td>
+                  <td title="Go back to made game">
                     <Link href={`create/${game}`}>{game}</Link>
                   </td>
                 </tr>
