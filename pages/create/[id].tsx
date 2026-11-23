@@ -1,4 +1,4 @@
-import { getAuth } from "@firebase/auth";
+import { getAuth } from "firebase/auth";
 import Heading from "components/Head";
 import Link from "next/link";
 import { useRouter } from "next/router";

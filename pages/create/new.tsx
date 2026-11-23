@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { getAuth } from "@firebase/auth";
+import { getAuth } from "firebase/auth";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";

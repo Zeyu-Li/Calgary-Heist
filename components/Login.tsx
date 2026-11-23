@@ -6,7 +6,7 @@ import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
-} from "@firebase/auth";
+} from "firebase/auth";
 
 interface props {
   auth: Auth;
