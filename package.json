@@ -2,33 +2,36 @@
   "name": "study-buddy",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@elm-react/component": "^2.0.2",
-    "@emotion/react": "^11.8.1",
-    "@emotion/styled": "^11.8.1",
-    "@mui/material": "^5.4.2",
-    "elm": "^0.19.1-5",
-    "elm-webpack-loader": "^8.0.0",
-    "firebase": "^9.6.7",
-    "firebase-admin": "^10.0.2",
-    "next": "12.1.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-elm-components": "^1.1.0",
-    "react-firebase-hooks": "^5.0.2",
-    "react-google-button": "^0.7.2"
+    "elm": "0.19.1-6",
+    "elm-webpack-loader": "8.0.0",
+    "firebase": "^13.4.0",
+    "imports-loader": "^5.0.0",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-firebase-hooks": "^5.1.1",
+    "react-google-button": "^0.8.0"
   },
   "devDependencies": {
-    "@types/node": "17.0.18",
-    "@types/react": "17.0.39",
-    "eslint": "8.9.0",
-    "eslint-config-next": "12.1.0",
-    "typescript": "4.5.5"
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.4.6",
+    "typescript": "^5.9.3"
+  },
+  "resolutions": {
+    "**/@firebase/firestore/@grpc/grpc-js": "^1.14.7",
+    "**/node-elm-compiler/cross-spawn": "^6.0.6"
   }
 }
